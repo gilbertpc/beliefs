@@ -2,7 +2,7 @@
 title: Why the world is pro-Palestinian ? 
 subtitle: Some thoughts on credulity and dynamics of beliefs
 author: "Gilbert PC"
-date: "05/10/2014"
+date: "19/10/2014"
 output: 
   html_document:
     keep_md: true
@@ -35,7 +35,7 @@ Before, I had never been interested in wars and conflicts in the news. I don't h
 A couple of days before this one, I had seen passing a youtube video showing a Palestinian boy shoted by an Israëli sniper. I had not pay attention and I believed in it. They pointed out to me this video is an obvious fake, and indeed it is not hard to check if you pay attention. In fact I was not aware about such a media manipulation. 
 
 
-I felt a little stupid. Then I have spent some time to interest myslef in the mediatization of this conflict and its consequences. I discovered some obvious facts which influenced the public opinion :
+I felt a little stupid. Then I have spent some time to interest myslef in the mediatization of this conflict and its consequences, such as the growing hatred of the Jewish people and irrational amalgams. I discovered some obvious facts which influenced the public opinion :
 
 - the mediatic bias mentionned before, as well as the disproportionate mediatic obsession to report about the Israëlo-conflict (see e.g. http://tabletmag.com/scroll/185121/former-ap-reporter-confirms-matti-friedman-account and links given therein, http://www.madacenter.org/news.php?lang=1&id=152 and http://www.honestreporting.ca/media-bias-research for more general thoughts);
 - the mediatic manipulation : reporting propaganda lies, such as the fake sniper video previously mentionned, a [Pallywood](http://en.wikipedia.org/wiki/Pallywood) production. 
