@@ -65,6 +65,8 @@ Beliefs are not static, they arise from somewhere and they move. My interest foc
 
 Below I define a simplistic model of dynamics of beliefs, partially inspired by Asu Ozdaglar's slides [Dynamics of Beliefs, Culture, and Social Interactions](https://community.apan.org/afosr/m/trust__influence_program_review/121305/download.aspx).
 
+R
+
 ### Society as a graph 
 
 Consider for illustration a small society with $5$ individuals names `JP`, `AA`, `J`, `B` and `JBM`. 
@@ -100,7 +102,7 @@ for(i in 1:nrow(M)){
 }
 #plot(g)
 g <- layoutGraph(g)
-nodeRenderInfo(g) <- list(fill=c("JP"="lightblue"))
+nodeRenderInfo(g) <- list(fill=c("JP"="firebrick1"))
 renderGraph(g)
 ```
 
@@ -226,7 +228,7 @@ for(t in 2:T){
 
 The results are shown by the graphic below. 
 
-```{r graph_onestubborn, fig.width=13}
+```{r results_onestubborn, fig.width=13}
 sims <- data.frame(time=1:T, t(X))
 ggdata <- melt(sims, id.vars="time", variable.name="individual", value.name="opinion")
 ggplot(ggdata, aes(x=time, y=opinion, color=individual)) + 
@@ -241,9 +243,16 @@ The particular point to observe is the behavior of `JBM` opinion: although `JBM`
 
 Let's modify the trusting parameters of `JBM` as well as his initial opinion value. We set all to $0$, so that `JBM` is now the subborn opposite to `JP`. 
 
-```{r graph_twostubborns, fig.width=13}
+```{r graph_twostubborns, fig.height=3}
 inits["JBM"] <- 0
 alpha["JBM","J"] <- 0
+nodeRenderInfo(g) <- list(fill=c("JBM"="lightpink"))
+renderGraph(g)
+```
+
+Let's run the simulations until $T=1000$ this time:
+
+```{r results_twostubborns, fig.width=13}
 T <- 1000
 X <- matrix(NA, nrow=nrow(alpha), ncol=T)
 rownames(X) <- rownames(alpha)
@@ -262,16 +271,16 @@ The graph shows that each opinion tends to converge to the opinion of `JP`, the 
 
 ## Back to the real life 
 
-What is the interest of my simplistic model ? Nothing but help us ask ourselves some questions:
+What is the interest of my simplistic model ? Nothing except as a starting point to help us ask ourselves some questions:
 
 
 - How could one improve the model so that it better reflects reality ? 
 
 - It is hard to imagine there is a realistic score representing our opinion. But this does not prevent us to imagine how such a fictive score would be updated after a contact from a qualitative perspective: when does it increase or decrease, when does it not move, can it definitely become immobile ?.. 
 
-- What are your own trusting parameters ? Why do you trust a media or a guy more than another one ? Is it due to its reputation ? Its charisma ? Its assurance ? Because it thinks like the majority ? Think that the guy you trust is also a guy trusting someone. Don't doubt only about him, also doubt about yourself.
+- What are your own trusting parameters in real life ? Why do you trust a media or a guy more than another one ? Is it due to its reputation ? Its charisma ? Its assurance ? Because it thinks like the majority ? Think that the guy you trust is also a guy trusting someone. Don't doubt only about him, also doubt about yourself.
 
-- How could one change the trend of the dynamics ?
+- How could one change the trend of the dynamics of beliefs in a society ?
 
 I would finish by this metaphor by Henri Laborit: *To go to the moon we need to know the laws of gravitation. When one knows them, this does not mean that one is freed from the laws of gravity, but it means they can be used for doing something else.*
 
