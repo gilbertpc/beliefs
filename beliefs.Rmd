@@ -191,11 +191,11 @@ Thus :
 
 - `AA` is dominated by `JP`: her trusting parameter $\alpha_{2,1}$ is equal to $1$. That means she will adopte whenever she meets `JP`. She is a credulous person: her other trusting parameters are $0.9$. She starts with opinion $x_2(0)=50\%$. 
 
-- `J` is a bit credulous about the claims of `JP` ($\alpha_{3,1}=60\%$) but not very credulous about the claims of his other friends ($\alpha_{3,j}=0.2$). He starts with opinion $x_3(0)=10\%$. 
+- `J` is a bit credulous about the claims of `JP` ($\alpha_{3,1}=0.6$) but not very credulous about the claims of his other friends ($\alpha_{3,j}=0.2$). He starts with opinion $x_3(0)=10\%$. 
 
-- `B` is dominated by `JP` ($\alpha_{4,1}=100\%$), half-credulous in regards to `AA` and `J` ($\alpha_{4,j}=50\%$), and not very credulous in regards to `JBM` ($\alpha_{4,5}=20\%$). He starts with opinion $x_4(0)=5\%$. 
+- `B` is dominated by `JP` ($\alpha_{4,1}=1$), half-credulous in regards to `AA` and `J` ($\alpha_{4,j}=0.5$), and not very credulous in regards to `JBM` ($\alpha_{4,5}=0.2$). He starts with opinion $x_4(0)=5\%$. 
 
-- `JBM` is not very credulous in regards to `J` ($\alpha_{5,3}=20\%$) but gives no credence to `B` ($\alpha_{5,4}=0\%$). He starts with opinion $x_5(0)=15\%$. 
+- `JBM` is not very credulous in regards to `J` ($\alpha_{5,3}=0.2$) but gives no credence to `B` ($\alpha_{5,4}=0$). He starts with opinion $x_5(0)=15\%$. 
 
 Well, let me mention that this example is a joke inspired by an episode of my personal life. The belief of interest is "*Gilbert PC is crazy*", but it has no importance for the purpose.  
 
@@ -203,7 +203,7 @@ Well, let me mention that this example is a joke inspired by an episode of my pe
 
 We simulate the occurences of meetings between individuals as simple as possible: at regular time intervals, we pick at random one connection between a pair of individuals. 
 
-```{r, fig.width=13}
+```{r graph_onestubborn, fig.width=13}
 T <- 200
 X <- matrix(NA, nrow=nrow(alpha), ncol=T)
 rownames(X) <- rownames(alpha)
@@ -234,7 +234,7 @@ ggplot(ggdata, aes(x=time, y=opinion, color=individual)) +
 
 Let's modify the trusting parameters of `JBM` as well as his initial opinion value. We set all to $0$, so that `JBM` is now the subborn opposite to `JP`. 
 
-```{r, fig.width=13}
+```{r graph_twostubborns, fig.width=13}
 inits["JBM"] <- 0
 alpha["JBM","J"] <- 0
 T <- 1000
@@ -275,6 +275,6 @@ What is the interest of my simplistic model ? Nothing but help us ask ourselves 
 
 - How could one change the trend of the dynamics ?
 
-I would finish by this metaphor of Henri Laborit: *To go to the moon we need to know the laws of gravitation. When one know these laws, this does not mean that one is freed from the laws of gravity, but it means they can be used for doing something else.*
+I would finish by this metaphor by Henri Laborit: *To go to the moon we need to know the laws of gravitation. When one know these laws, this does not mean that one is freed from the laws of gravity, but it means they can be used for doing something else.*
 
 
