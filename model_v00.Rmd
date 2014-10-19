@@ -7,11 +7,7 @@ output:
     keep_md: true
 ---
 
-<style>
-    iframe{
-        border: none
-    }
-</style>
+
 
 ```{r setup, echo=FALSE, message=FALSE}
 library(knitr)
