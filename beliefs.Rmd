@@ -1,7 +1,7 @@
 ---
 title: Why the world is pro-Palestinian ? 
 subtitle: Some thoughts on credulity and dynamics of beliefs
-author: "gilbert pc"
+author: "Gilbert PC"
 date: "05/10/2014"
 output: 
   html_document:
@@ -26,30 +26,29 @@ Bertrand Russell, *The Analysis of Mind* (1921)
 
 ## Origins of this article
 
-If you have found this article while searching something to read about Israel and Palestine then you could be disappointed to not find here any political idea and anything about who is right or who is wrong about this conflict. Nothing about colonialism, nothing about who are the Palestinians. This article is about beliefs, not about truth and falsehood, not about morals or ethics. 
+If you have found this article while searching something to read about Israel and Palestine then you could be disappointed to not find here any political idea and anything about who is right or who is wrong about this conflict. Nothing about colonialism, nothing about who are the Palestinians. This article is about beliefs, not about truth and falsehood, not about morals or ethics. However I don't publish it under my real name. 
 
-Indeed, I'm nothing but a scientist. My daily job is statistics and during my free time, I'm usually doing some research in mathematics. But something happens to me on summer 2014.  
+Indeed, I'm nothing but a humble scientist. My daily job is statistics and during my free time, I'm usually doing some research in mathematics or I'm writing some articles on my blog under my real name, about statistics,  mathematics, or programming languages. But something happens to me on summer 2014, that causes me to write this article. 
 
-Before, I had never been interested in wars and conflicts in the news. I don't have TV for a long time. But on summer 2014 I was too tired for my scientific activity and I spended some time on internet. I have an Israeli contact on my facebook account, and one day I saw him and some his facebook friends talking about the Israeli-Palestinian conflict on his wall. As I said, I had not been interested in this conflict, but as everybody I had seen images and big font article titles about it, because they invaded the few media that I am daily exposed to, such as Yahoo news and the facebook publications of my facebook friends. My mind was influenced and I didn't really realized this; these images and big font titles engendered a belief in my mind that Israël led an unjust bloody war against Palestine (by the way I even didn't know what is Palestine). The discussion on this facebook wall was supporting the Israeli side and then I intervened  by asking to the discussion members whether they were indifferent (or something like that, I don't remember) to the « Palestinian genocide » (these are the words I used, I remember).   They cordially replied me that I had wrong ideas in my mind engendered by media reporting. And they were right. 
+Before, I had never been interested in wars and conflicts in the news. I don't have TV for a long time and I don't actively look at the news on internet. But on summer 2014 I was too tired for my scientific activity and I spended some time on internet. I have an Israeli contact on my facebook account, and one day I saw him and some his facebook friends talking about the Israeli-Palestinian conflict on his wall. As I said, I had not been interested in this conflict, but as everybody I had seen images and big font article titles about it, because they invaded the few media that I am daily exposed to, such as Yahoo news and the facebook publications of my facebook friends. My mind was influenced and I didn't really realized this; these images and big font titles engendered a belief in my mind that Israël led an unjust bloody war against Palestine (by the way I even didn't know what is Palestine). The discussion on this facebook wall was supporting the Israeli side and then I intervened  by asking to the discussion members whether they were indifferent (or something like that, I don't remember) to the « Palestinian genocide » (these are the words I used, I remember).   They cordially replied me that I had wrong ideas in my mind engendered by media reporting. And they were right. 
 
-A couple of days before this one, I had seen passing a youtube video showing a Palestinian boy shoted by an Israëli sniper. I had not pay attention and I believed in it. They pointed out to me this video is an obvious fake and indeed it is not hard to check if you pay attention. In fact I was not aware about such a media manipulation. 
+A couple of days before this one, I had seen passing a youtube video showing a Palestinian boy shoted by an Israëli sniper. I had not pay attention and I believed in it. They pointed out to me this video is an obvious fake, and indeed it is not hard to check if you pay attention. In fact I was not aware about such a media manipulation. 
 
-(?) Maybe I should add that sometimes I suffer emotional hyper-empathy because I was born with so-called [intellectual giftedness](http://en.wikipedia.org/wiki/Intellectual_giftedness). In addition to reading what these guys wrote on this facebook wall, I was feeling how they were tired about the mediatic bias.
 
-Then I have spent some time to interest myslef in the conflict. And I discovered some obvious facts which influenced the public opinion :
+I felt a little stupid. Then I have spent some time to interest myslef in the mediatization of this conflict and its consequences. I discovered some obvious facts which influenced the public opinion :
 
-- the mediatic bias mentionned before, as well as the disproportionate mediatic obsession to report about the Israëlo-conflict (see e.g. http://tabletmag.com/scroll/185121/former-ap-reporter-confirms-matti-friedman-account and links given therein, http://www.madacenter.org/news.php?lang=1&id=152 and http://www.honestreporting.ca/media-bias-research for more general thoughts) : for example, being against Big Brother Israël belongs to the mainstream, and an editorial board would not be business-oriented to report against the mainstream;
+- the mediatic bias mentionned before, as well as the disproportionate mediatic obsession to report about the Israëlo-conflict (see e.g. http://tabletmag.com/scroll/185121/former-ap-reporter-confirms-matti-friedman-account and links given therein, http://www.madacenter.org/news.php?lang=1&id=152 and http://www.honestreporting.ca/media-bias-research for more general thoughts) : for example, being against Big Brother Israël belongs to the mainstream of the public opinion, and an editorial board would not be business-oriented to report against the mainstream;
 - the mediatic manipulation : reporting propaganda lies, such as the fake sniper video previously mentionned, a [Pallywood](http://en.wikipedia.org/wiki/Pallywood) production. 
 
 
-One could think a fake video on youtube must not be taken seriously as a manipulation, especially when it so preposterous, but one would be wrong. This video has been used as a «fact» by the so-called prestigious Russell Tribunal to blame Israël. And the judgement proclamed by the [Russell Tribunal](http://www.ujfp.org/IMG/pdf/summary-of-findings_en.pdf) has been exploited by pro-Palestinian organisations (such as the [UFJD](http://www.ujfp.org/spip.php?article3536)). Bertrand Russell, the great philosopher whose name is sullied by this tribunal, said : «Men tend to have the beliefs that suit their passsion.».  Simplistically speaking, men have a natural psychological construct which makes them feel the need to save other people, and then a tendency to rally to the side of the oppressed. This is well-known by Pallywood producers. 
+One could think a fake video on youtube must not be taken seriously as a manipulation, especially when it so preposterous, but one would be wrong. This video has been used as a «fact» by the so-called prestigious Russell Tribunal to blame Israël. And the judgement proclamed by the [Russell Tribunal](http://www.ujfp.org/IMG/pdf/summary-of-findings_en.pdf) has been exploited by pro-Palestinian organisations (such as the [UFJD](http://www.ujfp.org/spip.php?article3536)). Bertrand Russell, the great philosopher whose name is sullied by this tribunal, said : «*Men tend to have the beliefs that suit their passsion.*».  Simplistically speaking, men have a natural psychological construct which makes them feel the need to save other people, and then a tendency to rally to the side of the oppressed. This is well-known by [Pallywood](http://en.wikipedia.org/wiki/Pallywood) producers and the proponents of the [dead baby strategy](http://www.israelnationalnews.com/Blogs/Message.aspx/6127#.VEPnbXWsWxU). 
 
  
 ## Beliefs
 
 In addition to my scientific interests in mathematics I've always been a bit interested in psychology, or basically, about how our mind works and behaves. Of course it is a complex mechanism. Beliefs have different nature. For example you belief the sun will rise tomorrow, probably because it has risen every previous day. It is also a belief to think it has risen every previous day, and it is also a belief to think that the sun will rise tomorrow because it has risen every previous day (this is called *induction* by some philosophers). 
 
-Such philisophical inspections of the nature of beliefs are not the subject here. One could say the underlying belief of the pro-Palestinian movement is that Israël is a good or bad entity, and there is an *opinion* about that, something combining a degree of belief and a degree of assessment of goodness and badness. This is even more philosphical than the sunrise, because this firstly involves to believe some facts and then this also involves the passage from these beliefs to another belief involving morals or ethics. Thinking about that is beyond the scope of this article, and this is why you should be disappointed if you were looking for something political about Israël and Palestine here. 
+Such philisophical inspections of the nature of beliefs are not the subject here. The belief of interest is that Israël is a good or bad entity, and there is an *opinion* about that, something combining a degree of belief and a degree of assessment of goodness and badness. This is even more philosphical than the philosophical problem of the sunrise, because this firstly involves to believe some facts and then this involves the passage from these beliefs to another belief involving morals or ethics. Thinking about that is beyond the scope of this article, and this is why you should be disappointed if you were looking for something political about Israël and Palestine in this article. 
 
 As I said, I was worried about myself when I realized my mind was influenced by my passive exposure to the medias. But I have been more seriously worried about how the public opinion was influenced. Then I decided to start thinking about the extent of this phenomenon. 
 
@@ -64,8 +63,7 @@ Beliefs are not static, they arise from somewhere and they move. My interest foc
 ## Modelling the dynamics of beliefs 
 
 Below I define a simplistic model of dynamics of beliefs, partially inspired by Asu Ozdaglar's slides [Dynamics of Beliefs, Culture, and Social Interactions](https://community.apan.org/afosr/m/trust__influence_program_review/121305/download.aspx).
-
-R
+I implement it using the R programming language. If you are not interested in the implementation, then skip all the framed boxes hereafter.
 
 ### Society as a graph 
 
@@ -100,7 +98,6 @@ for(i in 1:nrow(M)){
     }
   }
 }
-#plot(g)
 g <- layoutGraph(g)
 nodeRenderInfo(g) <- list(fill=c("JP"="firebrick1"))
 renderGraph(g)
@@ -122,7 +119,7 @@ tab <- str_replace_all(tab, "tabular", "array")
 cat(paste0("$$", tab, "$$"))
 ```
 
-A `0` means no connection between the two individuals, a `1` means connection between the two individuals (connected individuals meet sometimes). 
+A `0` means no connection between the two individuals, a `1` means there's a  connection between the two individuals (connected individuals meet sometimes). 
 Then the graph is constructed and plotted by the following code:
 
 ```{r chunk2, ref.label='graph', eval=FALSE}
@@ -198,11 +195,11 @@ Thus :
 
 - `JBM` is not very credulous in regards to `J` ($\alpha_{5,3}=0.2$) and gives no credence to `B` ($\alpha_{5,4}=0$). He starts with opinion $x_5(0)=15\%$. 
 
-Well, let me mention that this example is a joke inspired by an episode of my personal life. The belief of interest is "*Gilbert PC is crazy*", but it has no importance for the purpose.  
+Well, let me mention that this example is a joke inspired by an episode of my personal life. The belief of interest is "*Gilbert PC is crazy*" <img src="figures/Smile_wink.png" alt=";)">, but it has no importance for the purpose.  
 
 ### Occurences of meetings
 
-We simulate the occurences of meetings between individuals as simple as possible: at regular time intervals, we pick at random one connection between a pair of individuals. 
+We simulate the occurences of meetings between individuals as simple as possible: at regular time intervals, we pick at random one connection between a pair of individuals among all possible connections.
 
 ```{r}
 T <- 200
@@ -236,7 +233,7 @@ ggplot(ggdata, aes(x=time, y=opinion, color=individual)) +
   xlim(c(1,T)) + ylim(c(0,100))
 ```
 
-The particular point to observe is the behavior of `JBM` opinion: although `JBM` is not connected to the stubborn `JP` and is not a credulous individual, his opinion converges to the stubborn opinion in the long-term.
+All opinions converge to the opinion of the stubborn `JP`. The remarkable point is the behavior of `JBM` opinion: although `JBM` is not connected to the stubborn `JP` and is not a credulous individual, his opinion converges to the stubborn opinion in the long-term.
 
 
 ### A two-stubborns example
@@ -267,21 +264,22 @@ ggplot(ggdata, aes(x=time, y=opinion, color=individual)) +
   xlim(c(1,T)) + ylim(c(0,100))
 ```
 
-The graph shows that each opinion tends to converge to the opinion of `JP`, the stubborn having more credibility and more connections in the society.
+The graph shows that each opinion is attracted to the opinion of `JP`, the stubborn having more credibility and more connections in the society. Except, obviously, for the opposite stubborn `JBM`. 
 
 ## Back to the real life 
 
-What is the interest of my simplistic model ? Nothing except as a starting point to help us ask ourselves some questions:
+What is the interest of my simplistic model ? Nothing except as a starting point to ask ourselves some questions which should help to understand how it works in reality :
 
-
-- How could one improve the model so that it better reflects reality ? 
+- Generally speaking, how could one improve the model so that it better reflects reality ? 
 
 - It is hard to imagine there is a realistic score representing our opinion. But this does not prevent us to imagine how such a fictive score would be updated after a contact from a qualitative perspective: when does it increase or decrease, when does it not move, can it definitely become immobile ?.. 
 
 - What are your own trusting parameters in real life ? Why do you trust a media or a guy more than another one ? Is it due to its reputation ? Its charisma ? Its assurance ? Because it thinks like the majority ? Think that the guy you trust is also a guy trusting someone. Don't doubt only about him, also doubt about yourself.
 
-- How could one change the trend of the dynamics of beliefs in a society ?
+- How could one significantly change the trend of the dynamics of beliefs in a society ?
 
-I would finish by this metaphor by Henri Laborit: *To go to the moon we need to know the laws of gravitation. When one knows them, this does not mean that one is freed from the laws of gravity, but it means they can be used for doing something else.*
+I don't address these issues here. I just wanted to say that mathematical modelling, by requiring first of all to identify the main mechanisms of the phenomenon, is a good way to go for anyone who wants to seriously reflect on this phenomenon. 
+
+To finish, let me quote [Henri Laborit](http://en.wikipedia.org/wiki/Mon_oncle_dAm%C3%A9rique): *To go to the moon we need to know the laws of gravitation. Knowing them does not make us free from  gravity, but it allows to use them for doing something else.*
 
 
