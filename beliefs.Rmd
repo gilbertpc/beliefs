@@ -37,20 +37,20 @@ A couple of days before this one, I had seen passing a youtube video showing a P
 
 I felt a little stupid. Then I have spent some time to interest myslef in the mediatization of this conflict and its consequences. I discovered some obvious facts which influenced the public opinion :
 
-- the mediatic bias mentionned before, as well as the disproportionate mediatic obsession to report about the Israëlo-conflict (see e.g. http://tabletmag.com/scroll/185121/former-ap-reporter-confirms-matti-friedman-account and links given therein, http://www.madacenter.org/news.php?lang=1&id=152 and http://www.honestreporting.ca/media-bias-research for more general thoughts) : for example, being against Big Brother Israël belongs to the mainstream of the public opinion, and an editorial board would not be business-oriented to report against the mainstream;
+- the mediatic bias mentionned before, as well as the disproportionate mediatic obsession to report about the Israëlo-conflict (see e.g. http://tabletmag.com/scroll/185121/former-ap-reporter-confirms-matti-friedman-account and links given therein, http://www.madacenter.org/news.php?lang=1&id=152 and http://www.honestreporting.ca/media-bias-research for more general thoughts);
 - the mediatic manipulation : reporting propaganda lies, such as the fake sniper video previously mentionned, a [Pallywood](http://en.wikipedia.org/wiki/Pallywood) production. 
 
 
-One could think a fake video on youtube must not be taken seriously as a manipulation, especially when it so preposterous, but one would be wrong. This video has been used as a «fact» by the so-called prestigious Russell Tribunal to blame Israël. And the judgement proclamed by the [Russell Tribunal](http://www.ujfp.org/IMG/pdf/summary-of-findings_en.pdf) has been exploited by pro-Palestinian organisations (such as the [UFJD](http://www.ujfp.org/spip.php?article3536)). Bertrand Russell, the great philosopher whose name is sullied by this tribunal, said : «*Men tend to have the beliefs that suit their passsion.*».  Simplistically speaking, men have a natural psychological construct which makes them feel the need to save other people, and then a tendency to rally to the side of the oppressed. This is well-known by [Pallywood](http://en.wikipedia.org/wiki/Pallywood) producers and the proponents of the [dead baby strategy](http://www.israelnationalnews.com/Blogs/Message.aspx/6127#.VEPnbXWsWxU). 
+One could think a fake video on youtube must not be taken seriously as a manipulation, especially when it so preposterous, but one would be wrong. This video has been used as a «fact» by the so-called prestigious Russell Tribunal to blame Israël. And the judgement proclamed by the [Russell Tribunal](http://www.ujfp.org/IMG/pdf/summary-of-findings_en.pdf) has been exploited by pro-Palestinian organisations (such as the [UFJD](http://www.ujfp.org/spip.php?article3536)). Do you think a tribunal basing its judgement on a youtube video is a valuable one ?  Bertrand Russell, the great philosopher whose name is sullied by this tribunal, said : «*Men tend to have the beliefs that suit their passsion.*».  Simplistically speaking, men have a natural psychological construct which makes them feel the need to save other people, and then a tendency to rally to the side of the oppressed. This is well-known by [Pallywood](http://en.wikipedia.org/wiki/Pallywood) producers and the proponents of the [dead baby strategy](http://www.israelnationalnews.com/Blogs/Message.aspx/6127#.VEPnbXWsWxU). 
 
  
 ## Beliefs
 
-In addition to my scientific interests in mathematics I've always been a bit interested in psychology, or basically, about how our mind works and behaves. Of course it is a complex mechanism. Beliefs have different nature. For example you belief the sun will rise tomorrow, probably because it has risen every previous day. It is also a belief to think it has risen every previous day, and it is also a belief to think that the sun will rise tomorrow because it has risen every previous day (this is called *induction* by some philosophers). 
+In addition to my scientific interests in mathematics I've always been a bit interested in psychology, or basically, about how our mind works and behaves. Of course it is a complex mechanism. Beliefs have different nature. For example you believe that the sun will rise tomorrow, probably because it has risen every previous day. It is also a belief to think it has risen every previous day, and it is also a belief to think that the sun will rise tomorrow because it has risen every previous day (this is called *induction* by some philosophers). 
 
-Such philisophical inspections of the nature of beliefs are not the subject here. The belief of interest is that Israël is a good or bad entity, and there is an *opinion* about that, something combining a degree of belief and a degree of assessment of goodness and badness. This is even more philosphical than the philosophical problem of the sunrise, because this firstly involves to believe some facts and then this involves the passage from these beliefs to another belief involving morals or ethics. Thinking about that is beyond the scope of this article, and this is why you should be disappointed if you were looking for something political about Israël and Palestine in this article. 
+Such philisophical inspections of the nature of beliefs are not the subject here. The belief mentionned in the introduction is that Israël is a good or bad entity, and there is an *opinion* about that, something combining a degree of belief and a degree of assessment of goodness and badness. This is even more philosphical than the philosophical problem of the sunrise, because this firstly involves to believe some facts and then this involves the passage from these beliefs to another belief involving morals or ethics. Thinking about that is beyond the scope of this article, and this is why you should be disappointed if you were looking for something political about Israël and Palestine in this article. 
 
-As I said, I was worried about myself when I realized my mind was influenced by my passive exposure to the medias. But I have been more seriously worried about how the public opinion was influenced. Then I decided to start thinking about the extent of this phenomenon. 
+As I said before, I was worried about myself when I realized my mind was influenced by my passive exposure to the medias. But I have been more seriously worried about how the public opinion was influenced. Then I decided to start thinking about the extent of this phenomenon. 
 
 Beliefs are not static, they arise from somewhere and they move. My interest focused on the *dynamics* of an opinion in a population under exposure to some medias. Medias are the emettors of beliefs, and individuals are not only subject to beliefs but they also are the vehicles of beliefs. In the next section about the dynamics of beliefs,  we don't mind what is the belief of interest. It could be about the existence of Santa Claus or anything else. 
 
@@ -62,12 +62,11 @@ Beliefs are not static, they arise from somewhere and they move. My interest foc
 
 ## Modelling the dynamics of beliefs 
 
-Below I define a simplistic model of dynamics of beliefs, partially inspired by Asu Ozdaglar's slides [Dynamics of Beliefs, Culture, and Social Interactions](https://community.apan.org/afosr/m/trust__influence_program_review/121305/download.aspx).
-I implement it using the R programming language. If you are not interested in the implementation, then skip all the framed boxes hereafter.
+I'm mathematician and I wondered how could we model the dynamics of a belief and whether there already exist some works on this topic. Below I define a simplistic model of dynamics of beliefs, partially inspired by Asu Ozdaglar's slides [Dynamics of Beliefs, Culture, and Social Interactions](https://community.apan.org/afosr/m/trust__influence_program_review/121305/download.aspx) I found. I implement it using the R programming language. If you are not interested in the implementation, then skip all the framed boxes hereafter.
 
 ### Society as a graph 
 
-Consider for illustration a small society with $5$ individuals names `JP`, `AA`, `J`, `B` and `JBM`. 
+Consider for illustration a small society with $5$ individuals named `JP`, `AA`, `J`, `B` and `JBM`. 
 It is represented by a graph such as the one below. The vertices are the individuals and the edges are the connections between individuals.
 
 ```{r, echo=FALSE}
@@ -125,7 +124,7 @@ Then the graph is constructed and plotted by the following code:
 ```{r chunk2, ref.label='graph', eval=FALSE}
 ```
 
-Individual `JP` will play a special role later, that's why we use a color for his vertex. 
+Individual `JP` will play a special role, that's why we use a color for his vertex. 
 
 For fun, you can generate a Javascript graph with the `d3Network` package:
 
@@ -264,7 +263,7 @@ ggplot(ggdata, aes(x=time, y=opinion, color=individual)) +
   xlim(c(1,T)) + ylim(c(0,100))
 ```
 
-The graph shows that each opinion is attracted to the opinion of `JP`, the stubborn having more credibility and more connections in the society. Except, obviously, for the opposite stubborn `JBM`. 
+The graph shows that each opinion is attracted to the opinion of `JP`, the stubborn having most credibility and most connections in the society. Except, obviously, for the opposite stubborn `JBM`. 
 
 ## Back to the real life 
 
@@ -278,8 +277,6 @@ What is the interest of my simplistic model ? Nothing except as a starting point
 
 - How could one significantly change the trend of the dynamics of beliefs in a society ?
 
-I don't address these issues here. I just wanted to say that mathematical modelling, by requiring first of all to identify the main mechanisms of the phenomenon, is a good way to go for anyone who wants to seriously reflect on this phenomenon. 
-
-To finish, let me quote [Henri Laborit](http://en.wikipedia.org/wiki/Mon_oncle_dAm%C3%A9rique): *To go to the moon we need to know the laws of gravitation. Knowing them does not make us free from  gravity, but it allows to use them for doing something else.*
+I don't address these issues here, I just invite you to do so. And I wanted to say that mathematical modelling, by requiring first of all to identify the main mechanisms of the phenomenon, is a good way to go for anyone who wants to seriously reflect on this phenomenon. 
 
 
