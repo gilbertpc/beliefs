@@ -49,22 +49,21 @@ One could think a fake video on youtube must not be taken seriously as a manipul
 
 In addition to my scientific interests in mathematics I've always been a bit interested in psychology, or basically, about how our mind works and behaves. Of course it is a complex mechanism. Beliefs have different nature. For example you belief the sun will rise tomorrow, probably because it has risen every previous day. It is also a belief to think it has risen every previous day, and it is also a belief to think that the sun will rise tomorrow because it has risen every previous day (this is called *induction* by some philosophers). 
 
-Such philisophical inspections of the nature of beliefs are not the subject here. One could say the underlying belief of the pro-Palestinian movement is that Israël is a good or bad entity, and there is an *opinion* about that, something combining a degree of belief and a degree of assessment of goodness and badness. This is even more philosphical than the sunrise, because this firstly involves to believe some facts and then this also involves the passage from these beliefs to another belief involving morals or ethics. Thinking about that is beyond the scope of this article, and this is why you should be disappointed if you were looking for something specific (???????) to Israël and Palestine here. 
+Such philisophical inspections of the nature of beliefs are not the subject here. One could say the underlying belief of the pro-Palestinian movement is that Israël is a good or bad entity, and there is an *opinion* about that, something combining a degree of belief and a degree of assessment of goodness and badness. This is even more philosphical than the sunrise, because this firstly involves to believe some facts and then this also involves the passage from these beliefs to another belief involving morals or ethics. Thinking about that is beyond the scope of this article, and this is why you should be disappointed if you were looking for something political about Israël and Palestine here. 
 
-As I said, I was worried about myself when I realized my mind was influenced by my passive exposure to the medias. I have also been worried about how the public opinion was influenced. Then I decided to start thinking about the extent of this phenomenon. 
+As I said, I was worried about myself when I realized my mind was influenced by my passive exposure to the medias. But I have been more seriously worried about how the public opinion was influenced. Then I decided to start thinking about the extent of this phenomenon. 
 
-Beliefs are not static, they move. Here we are interested in the *dynamics* of an opinion in a population under exposure to some medias. Medias are the emettors of beliefs, and individuals are not only subject to beliefs but they also are the vehicles of beliefs. And we don't mind what is the belief of interest. It could be about the existence of Santa Claus or anything else. 
+Beliefs are not static, they arise from somewhere and they move. My interest focused on the *dynamics* of an opinion in a population under exposure to some medias. Medias are the emettors of beliefs, and individuals are not only subject to beliefs but they also are the vehicles of beliefs. In the next section about the dynamics of beliefs,  we don't mind what is the belief of interest. It could be about the existence of Santa Claus or anything else. 
 
 
 ![alt text](figures/lyingmap.jpg)
 
-*A belief emettor: a controversial map exhibited in American train stations, also brandished in pro-Palestinian demonstrators (and also used by Pierre Stambul as the cover picture of his recent book "Le sionisme en questions").*
+*A belief emettor: a controversial map exhibited in American train stations, also brandished by pro-Palestinian demonstrators (and also used by Pierre Stambul as the cover picture of his recent book "Le sionisme en questions").*
 
 
 ## Modelling the dynamics of beliefs 
 
-
-[Dynamics of Beliefs, Culture, and Social Interactions](https://community.apan.org/afosr/m/trust__influence_program_review/121305/download.aspx) by Asu Ozdaglar.
+Below I define a simplistic model of dynamics of beliefs, partially inspired by Asu Ozdaglar's slides [Dynamics of Beliefs, Culture, and Social Interactions](https://community.apan.org/afosr/m/trust__influence_program_review/121305/download.aspx).
 
 ### Society as a graph 
 
@@ -195,7 +194,7 @@ Thus :
 
 - `B` is dominated by `JP` ($\alpha_{4,1}=1$), half-credulous in regards to `AA` and `J` ($\alpha_{4,j}=0.5$), and not very credulous in regards to `JBM` ($\alpha_{4,5}=0.2$). He starts with opinion $x_4(0)=5\%$. 
 
-- `JBM` is not very credulous in regards to `J` ($\alpha_{5,3}=0.2$) but gives no credence to `B` ($\alpha_{5,4}=0$). He starts with opinion $x_5(0)=15\%$. 
+- `JBM` is not very credulous in regards to `J` ($\alpha_{5,3}=0.2$) and gives no credence to `B` ($\alpha_{5,4}=0$). He starts with opinion $x_5(0)=15\%$. 
 
 Well, let me mention that this example is a joke inspired by an episode of my personal life. The belief of interest is "*Gilbert PC is crazy*", but it has no importance for the purpose.  
 
@@ -203,7 +202,7 @@ Well, let me mention that this example is a joke inspired by an episode of my pe
 
 We simulate the occurences of meetings between individuals as simple as possible: at regular time intervals, we pick at random one connection between a pair of individuals. 
 
-```{r graph_onestubborn, fig.width=13}
+```{r}
 T <- 200
 X <- matrix(NA, nrow=nrow(alpha), ncol=T)
 rownames(X) <- rownames(alpha)
@@ -221,6 +220,13 @@ update <- function(X, t){
 for(t in 2:T){
   X <- update(X,t)
 }
+```
+
+### Results 
+
+The results are shown by the graphic below. 
+
+```{r graph_onestubborn, fig.width=13}
 sims <- data.frame(time=1:T, t(X))
 ggdata <- melt(sims, id.vars="time", variable.name="individual", value.name="opinion")
 ggplot(ggdata, aes(x=time, y=opinion, color=individual)) + 
@@ -228,6 +234,7 @@ ggplot(ggdata, aes(x=time, y=opinion, color=individual)) +
   xlim(c(1,T)) + ylim(c(0,100))
 ```
 
+The particular point to observe is the behavior of `JBM` opinion: although `JBM` is not connected to the stubborn `JP` and is not a credulous individual, his opinion converges to the stubborn opinion in the long-term.
 
 
 ### A two-stubborns example
@@ -241,16 +248,6 @@ T <- 1000
 X <- matrix(NA, nrow=nrow(alpha), ncol=T)
 rownames(X) <- rownames(alpha)
 X[,1] <- inits
-update <- function(X, t){
-  edge <- str_split(edgeNames(g), "~")[[sample.int(numEdges(g),1)]]
-  i <- edge[1] ; j <- edge[2]
-  xi <- X[i,t-1] ; xj <- X[j,t-1]
-  X[i,t] <- (1-alpha[i,j])*xi + alpha[i,j]*xj
-  X[j,t] <- (1-alpha[j,i])*xj + alpha[j,i]*xi
-  others <- setdiff(rownames(X), edge)
-  X[others,t] <- X[others,t-1]
-  return(X)
-}
 for(t in 2:T){
   X <- update(X,t)
 }
@@ -261,6 +258,7 @@ ggplot(ggdata, aes(x=time, y=opinion, color=individual)) +
   xlim(c(1,T)) + ylim(c(0,100))
 ```
 
+The graph shows that each opinion tends to converge to the opinion of `JP`, the stubborn having more credibility and more connections in the society.
 
 ## Back to the real life 
 
@@ -275,6 +273,6 @@ What is the interest of my simplistic model ? Nothing but help us ask ourselves 
 
 - How could one change the trend of the dynamics ?
 
-I would finish by this metaphor by Henri Laborit: *To go to the moon we need to know the laws of gravitation. When one know these laws, this does not mean that one is freed from the laws of gravity, but it means they can be used for doing something else.*
+I would finish by this metaphor by Henri Laborit: *To go to the moon we need to know the laws of gravitation. When one knows them, this does not mean that one is freed from the laws of gravity, but it means they can be used for doing something else.*
 
 
