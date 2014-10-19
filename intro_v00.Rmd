@@ -1,0 +1,80 @@
+---
+title: Why the world is pro-Palestinian ? 
+subtitle: Some thoughts on credulity and dynamics of beliefs
+author: "gilbert pc"
+date: "05/10/2014"
+output: 
+  html_document:
+    keep_md: true
+---
+
+*Belief is the central problem in the analysis of mind. Believing seems the most «mental» thing we do, the thing most remote from what is done by mere matter. The whole intellectual life consists of beliefs, and of the passage from one belief to another by what is called «reasoning.» Beliefs give knowledge and error; they are the vehicles of truth and falsehood.*
+
+Bertrand Russell, *The Analysis of Mind* (1921)
+
+
+## Origins of this article
+
+If you have found this article while searching something to read about Israel and Palestine then you could be disappointed to not find here any political idea and anything about who is right or who is wrong about this conflict. Nothing about colonialism, nothing about who are the Palestinians. This article is about beliefs, not about truth and falsehood, not about morals or ethics. 
+
+Indeed, I'm nothing but a scientist. My daily job is statistics and during my free time, I'm usually doing some research in mathematics. But something happens to me on summer 2014.  
+
+Before, I had never been interested in wars and conflicts in the news. I don't have TV for a long time. But on summer 2014 I was too tired for my scientific activity and I spended some time on internet. I have an Israeli contact on my facebook account, and one day I saw him and some his facebook friends talking about the Israeli-Palestinian conflict on his wall. As I said, I had not been interested in this conflict, but as everybody I had seen images and big font article titles about it, because they invaded the few media that I am daily exposed to, such as Yahoo news and the facebook publications of my facebook friends. My mind was influenced and I didn't really realized this; these images and big font titles engendered a belief in my mind that Israël led an unjust bloody war against Palestine (by the way I even didn't know what is Palestine). The discussion on this facebook wall was supporting the Israeli side and then I intervened  by asking to the discussion members whether they were indifferent (or something like that, I don't remember) to the « Palestinian genocide » (these are the words I used, I remember).   They cordially replied me that I had wrong ideas in my mind engendered by media reporting. And they were right. 
+
+A couple of days before this one, I had seen passing a youtube video showing a Palestinian boy shoted by an Israëli sniper. I had not pay attention and I believed in it. They pointed out to me this video is an obvious fake and indeed it is not hard to check if you pay attention. In fact I was not aware about such a media manipulation. 
+
+(?) Maybe I should add that sometimes I suffer emotional hyper-empathy because I was born with so-called [intellectual giftedness](http://en.wikipedia.org/wiki/Intellectual_giftedness). In addition to reading what these guys wrote on this facebook wall, I was feeling how they were tired about the mediatic bias.
+
+Then I have spent some time to interest myslef in the conflict. And I discovered some obvious facts which influenced the public opinion :
+
+- the mediatic bias mentionned before, as well as the disproportionate mediatic obsession to report about the Israëlo-conflict (see e.g. http://tabletmag.com/scroll/185121/former-ap-reporter-confirms-matti-friedman-account and links given therein, http://www.madacenter.org/news.php?lang=1&id=152 and http://www.honestreporting.ca/media-bias-research for more general thoughts) : for example, being against Big Brother Israël belongs to the mainstream, and an editorial board would not be business-oriented to report against the mainstream;
+- the mediatic manipulation : reporting propaganda lies, such as the fake sniper video previously mentionned, a [Pallywood](http://en.wikipedia.org/wiki/Pallywood) production. 
+
+
+One could think a fake video on youtube must not be taken seriously as a manipulation, especially when it so preposterous, but one would be wrong. This video has been used as a «fact» by the so-called prestigious Russell Tribunal to blame Israël. And the judgement proclamed by the [Russell Tribunal](http://www.ujfp.org/IMG/pdf/summary-of-findings_en.pdf) has been exploited by pro-Palestinian organisations (such as the [UFJD](http://www.ujfp.org/spip.php?article3536)). Bertrand Russell, the great philosopher whose name is sullied by this tribunal, said : «Men tend to have the beliefs that suit their passsion.».  Simplistically speaking, men have a natural psychological construct which makes them feel the need to save other people, and then a tendency to rally to the side of the oppressed. This is well-known by Pallywood producers. 
+
+ 
+## Beliefs
+
+In addition to my scientific interests in mathematics I've always been a bit interested in psychology, or basically, about how our mind works and behaves. Of course it is a complex mechanism. Beliefs have different nature. For example you belief the sun will rise tomorrow, probably because it has risen every previous day. It is also a belief to think it has risen every previous day, and it is also a belief to think that the sun will rise tomorrow because it has risen every previous day (this is called *induction* by some philosophers). 
+
+Such philisophical inspections of the nature of beliefs are not the subject here. One could say the underlying belief of the pro-Palestinian movement is that Israël is a good or bad entity, and there is an *opinion* about that, something combining a degree of belief and a degree of assessment of goodness and badness. This is even more philosphical than the sunrise, because this firstly involves to believe some facts and then this also involves the passage from these beliefs to another belief involving morals or ethics. Thinking about that is beyond the scope of this article, and this is why you should be disappointed if you were looking for something specific (???????) to Israël and Palestine here. 
+
+As I said, I was worried about myself when I realized my mind was influenced by my passive exposure to the medias. I have also been worried about how the public opinion was influenced. Then I decided to start thinking about the extent of this phenomenon. 
+
+Beliefs are not static, they move. Here we are interested in the *dynamics* of an opinion in a population under exposure to some medias. Medias are the emettors of beliefs, and individuals are not only subject to beliefs but they also are the vehicles of beliefs. And we don't mind what is the belief of interest. It could be about the existence of Santa Claus or anything else. 
+
+
+![alt text](figures/lyingmap.jpg)
+
+*A belief emettor: a controversial map exhibited in American train stations, also brandished in pro-Palestinian demonstrators (and also used by Pierre Stambul as the cover picture of his recent book "Le sionisme en questions").*
+
+
+## Modelling the dynamics of beliefs 
+
+[Dynamics of Beliefs, Culture, and Social Interactions](https://community.apan.org/afosr/m/trust__influence_program_review/121305/download.aspx) by Asu Ozdaglar.
+
+## Back to the real life 
+
+What is the interest of my simplistic model ? Nothing but help us ask ourselves some questions:
+
+
+- How could one improve the model so that it better reflects reality ? 
+
+- It is hard to imagine there is a realistic score representing our opinion. But this does not prevent us to imagine how such a fictive score would be updated after a contact from a qualitative perspective: when does it increase or decrease, when does it not move, can it definitely become immobile ?.. 
+
+- What are your own trusting parameters ? Why do you trust a media or a guy more than another one ? Is it due to its reputation ? Its charisma ? Its assurance ? Because it thinks like the majority ? Think that the guy you trust is also a guy trusting someone. Don't doubt only about him, also doubt about yourself.
+
+- How could one change the trend of the dynamics ?
+
+I would finish by this metaphor of Henri Laborit: *To go to the moon we need to know the laws of gravitation. When one know these laws, this does not mean that one is freed from the laws of gravity, but it means they can be used for doing something else.*
+
+
+
+## To do 
+
+Triangle Karpman 
+
+alicia durand , narcissisme 
+
+Biais médiatique, mensonges de propagande 
