@@ -7,7 +7,11 @@ output:
     keep_md: true
 ---
 
-
+<style>
+    iframe{
+        border: none
+    }
+</style>
 
 ```{r setup, echo=FALSE, message=FALSE}
 library(knitr)
@@ -233,7 +237,7 @@ if you insert a style sheet after `<body>`.
 Here comes a test of the Brownian motion:
 
 ```{r test, fig.show='animate', interval=.1}
-for(t in 1:2){
+for(t in 1:20){
   gg <- ggplot(subset(ggdata, time<=t), aes(x=time, y=opinion, color=individual)) + 
      geom_line() + 
     xlim(c(1,T)) + ylim(c(0,100))
