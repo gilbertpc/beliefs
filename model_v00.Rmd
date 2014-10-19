@@ -1,0 +1,252 @@
+---
+title: A simple model for dynamics of beliefs
+author: "gpc"
+date: "05/10/2014"
+output: 
+  html_document:
+    keep_md: true
+---
+
+<style>
+    iframe{
+        border: none
+    }
+</style>
+
+```{r setup, echo=FALSE, message=FALSE}
+library(knitr)
+opts_knit$set(animation.fun = hook_scianimator)
+opts_chunk$set(fig.path='figures/model00-', collapse=TRUE)
+library(xtable)
+library(stringr)
+library(Rgraphviz)
+library(reshape2)
+library(ggplot2)
+```
+
+ 
+## Society as a graph 
+
+Consider for illustration a small society with $5$ individuals names `JP`, `AA`, `J`, `B` and `JBM`. 
+It is represented by a graph such as the one below. The vertices are the individuals and the edges are the connections between individuals.
+
+```{r, echo=FALSE}
+a <- "JP"
+b <- "AA"
+c <- "J"
+d <- "B"
+e <- "JBM"
+members <- c(a, b, c, d, e)
+M <- matrix(
+  c(1,  1,	1,	0,
+    NA,	1,	1,	0,
+    NA,	NA,	1,	1,
+    NA, NA,	NA,	1),
+  nrow=4, byrow=TRUE)
+rownames(M) <- members[-length(members)]
+colnames(M) <- members[-1]
+```
+
+```{r graph, fig.height=3, echo=FALSE}
+library(Rgraphviz)
+g <- new("graphNEL", nodes=members, edgemode="undirected") 
+for(i in 1:nrow(M)){
+  connections <- which(M[i,]>0)
+  if(length(connections)){
+    for(j in connections){
+      g <- addEdge(rownames(M)[i], colnames(M)[j], g, M[i,j])
+    }
+  }
+}
+#plot(g)
+g <- layoutGraph(g)
+nodeRenderInfo(g) <- list(fill=c("JP"="lightblue"))
+renderGraph(g)
+```
+
+This graph is easy to plot in R using the `graph` and `Rgraphviz` packages. 
+One starts with a matrix of connections `M`:
+
+```{r}
+M
+```
+
+prettier rendered like this (for those who are not familiar with R outputs):
+
+```{r, results='asis', echo=FALSE}
+tab <- print(xtable(M, digits=0, align=c("r|","c|","c|","c|","c")), 
+             print.results=FALSE, floating=FALSE, comment=FALSE, hline.after=0:3)
+tab <- str_replace_all(tab, "tabular", "array")
+cat(paste0("$$", tab, "$$"))
+```
+
+A `0` means no connection between the two individuals, a `1` means connection between the two individuals (connected individuals meet sometimes). 
+Then the graph is constructed and plotted by the following code:
+
+```{r chunk2, ref.label='graph', eval=FALSE}
+```
+
+Individual `JP` will play a special role later, that's why we use a color for his vertex. 
+
+For fun, we can generate a Javascript graph with the `d3Network` package:
+
+```{r, results='asis'}
+library(d3Network)
+from <- sapply(str_split(edgeNames(g), "~"), function(pair) pair[1])
+to <- sapply(str_split(edgeNames(g), "~"), function(pair) pair[2])
+d3SimpleNetwork(data.frame(from,to), file="d3graph.html", 
+                fontsize=13, linkDistance=150, 
+                iframe=TRUE, width=400, height=300)
+```
+
+
+## Belief updating
+
+Consider a topic of interest in the society. Each individual has its own opinion about this topic, represented by a score between $0\%$ and $100\%$.  
+When two connected individuals meet, their opinion is updated according to a *trusting parameter*. 
+More precisely, denote by $x_i(t)$ the opinion of each individual $i$ at time $t$. Then, when individual $i$ meet individual $j$ at time $t$,  its opinion is updated according to the following rule:
+$$x_i(t^+) =  (1-\alpha_{ij}) x_i(t) + \alpha_{ij} x_j(t)$$
+where $\alpha_{ij} \in [0,1]$ is the trusting parameter representing the degree of individual $i$ confidence in individual $j$. 
+In other words, the updated opinion $x_i(t^+)$ is the average of the two opinions $x_i(t)$ and $x_j(t)$ weighted by the trusting parameter $\alpha_{ij}$.  
+It is understood that individual $j$ opinion is similarly updated:
+$$x_j(t^+) =  (1-\alpha_{ji}) x_j(t) + \alpha_{ji} x_i(t)$$
+
+<u>Extreme trusting parameters</u>:
+
+- $\alpha_{ij}=0$ *($i$ stubborn to $j$)*: in case $\alpha_{ij}=0$, opinion of individual $i$ does not change when he meets individual $j$
+- $\alpha_{ij}=1$ *($i$ dominated by $j$)*: in case $\alpha_{ij}=1$, opinion of individual $i$ becomes opinion of individual $j$ when they meet
+
+For our illustration we use the following matrix of trusting parameters (there's no trusting parameter between unconnected individuals):
+
+```{r, echo=FALSE}
+alpha <- as.matrix(structure(list(JP = c(NA, 100L, 60L, 100L, NA), AA = c(0L, NA, 
+                                                            10L, 50L, NA), J = c(0L, 90L, NA, 50L, 20L), B = c(0L, 90L, 
+                                                                                                                10L, NA, 0L), JBM = c(NA, NA, 10L, 20L, NA)), .Names = members, class = "data.frame", row.names = members))/100
+```
+
+```{r}
+alpha
+```
+
+```{r, results='asis', echo=FALSE}
+tab <- print(xtable(alpha, digits=1, align=c("r|", "c|", "c|","c|","c|","c")), 
+             print.results=FALSE, floating=FALSE, comment=FALSE, hline.after=0:4)
+tab <- str_replace_all(tab, "tabular", "array")
+cat(paste0("$$\\alpha=", tab, "$$"))
+```
+
+and we use the following initial values of the opinions at time $t=0$:
+
+```{r}
+individuals <- colnames(alpha)
+inits <- setNames(c(100, 50, 10, 5, 15), individuals)
+inits
+```
+
+Thus :
+
+- `JP` is stubborn to everyone: his trusting parameters $\alpha_{1,j}$ are equal to $0$. That means his opinion will never change and he starts with extreme opinion $x_1(0)=100\%$. He's playing the role of a media in the society.
+
+- `AA` is dominated by `JP`: her trusting parameter $\alpha_{2,1}$ is equal to $1$. That means she will adopte whenever she meets `JP`. She is a credulous person: her other trusting parameters are $0.9$. She starts with opinion $x_2(0)=50\%$. 
+
+- `J` is a bit credulous about the claims of `JP` ($\alpha_{3,1}=60\%$) but not very credulous about the claims of his other friends ($\alpha_{3,j}=0.2$). He starts with opinion $x_3(0)=10\%$. 
+
+- `B` is dominated by `JP` ($\alpha_{4,1}=100\%$), half-credulous in regards to `AA` and `J` ($\alpha_{4,j}=50\%$), and not very credulous in regards to `JBM` ($\alpha_{4,5}=20\%$). He starts with opinion $x_4(0)=5\%$. 
+
+- `JBM` is not very credulous in regards to `J` ($\alpha_{5,3}=20\%$) but gives no credence to `B` ($\alpha_{5,4}=0\%$). He starts with opinion $x_5(0)=15\%$. 
+
+Well, let me mention that this example is a joke inspired by an episode of my personal life. The belief of interest is "*Gilbert PC is crazy*", but it has no importance for the purpose.  
+
+## Occurences of meetings
+
+We simulate the occurences of meetings between individuals as simple as possible: at regular time intervals, we pick at random one connection between a pair of individuals. 
+
+```{r, fig.width=13}
+T <- 200
+X <- matrix(NA, nrow=nrow(alpha), ncol=T)
+rownames(X) <- rownames(alpha)
+X[,1] <- inits
+update <- function(X, t){
+  edge <- str_split(edgeNames(g), "~")[[sample.int(numEdges(g),1)]]
+  i <- edge[1] ; j <- edge[2]
+  xi <- X[i,t-1] ; xj <- X[j,t-1]
+  X[i,t] <- (1-alpha[i,j])*xi + alpha[i,j]*xj
+  X[j,t] <- (1-alpha[j,i])*xj + alpha[j,i]*xi
+  others <- setdiff(rownames(X), edge)
+  X[others,t] <- X[others,t-1]
+  return(X)
+}
+for(t in 2:T){
+  X <- update(X,t)
+}
+sims <- data.frame(time=1:T, t(X))
+ggdata <- melt(sims, id.vars="time", variable.name="individual", value.name="opinion")
+ggplot(ggdata, aes(x=time, y=opinion, color=individual)) + 
+   geom_line() + 
+  xlim(c(1,T)) + ylim(c(0,100))
+```
+
+
+
+## A two-stubborns example
+
+Let's modify the trusting parameters of `JBM` as well as his initial opinion value. We set all to $0$, so that `JBM` is now the subborn opposite to `JP`. 
+
+```{r, fig.width=13}
+inits["JBM"] <- 0
+alpha["JBM","J"] <- 0
+T <- 1000
+X <- matrix(NA, nrow=nrow(alpha), ncol=T)
+rownames(X) <- rownames(alpha)
+X[,1] <- inits
+update <- function(X, t){
+  edge <- str_split(edgeNames(g), "~")[[sample.int(numEdges(g),1)]]
+  i <- edge[1] ; j <- edge[2]
+  xi <- X[i,t-1] ; xj <- X[j,t-1]
+  X[i,t] <- (1-alpha[i,j])*xi + alpha[i,j]*xj
+  X[j,t] <- (1-alpha[j,i])*xj + alpha[j,i]*xi
+  others <- setdiff(rownames(X), edge)
+  X[others,t] <- X[others,t-1]
+  return(X)
+}
+for(t in 2:T){
+  X <- update(X,t)
+}
+sims <- data.frame(time=1:T, t(X))
+ggdata <- melt(sims, id.vars="time", variable.name="individual", value.name="opinion")
+ggplot(ggdata, aes(x=time, y=opinion, color=individual)) + 
+   geom_line() + 
+  xlim(c(1,T)) + ylim(c(0,100))
+```
+
+
+
+
+```{r}
+#knit_exit()
+```
+
+You have to embed the jQuery and SciAnimator libraries in the HTML header
+(between `<head>` and `</head>`), even though some browsers can tolerate it
+if you insert a style sheet after `<body>`.
+
+<link rel="stylesheet" href="https://raw.github.com/brentertz/scianimator/master/assets/css/scianimator.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://vis.supstat.com/assets/themes/dinky/js/jquery.scianimator.min.js"></script>
+
+Here comes a test of the Brownian motion:
+
+```{r test, fig.show='animate', interval=.1}
+for(t in 1:2){
+  gg <- ggplot(subset(ggdata, time<=t), aes(x=time, y=opinion, color=individual)) + 
+     geom_line() + 
+    xlim(c(1,T)) + ylim(c(0,100))
+  print(gg)
+  }
+```
+
+
+```{r}
+knit_exit()
+```
+
