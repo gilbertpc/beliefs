@@ -17,6 +17,7 @@ library(stringr)
 library(Rgraphviz)
 library(reshape2)
 library(ggplot2)
+set.seed(666)
 ```
 
 *Belief is the central problem in the analysis of mind. Believing seems the most «mental» thing we do, the thing most remote from what is done by mere matter. The whole intellectual life consists of beliefs, and of the passage from one belief to another by what is called «reasoning.» Beliefs give knowledge and error; they are the vehicles of truth and falsehood.*
@@ -126,7 +127,7 @@ Then the graph is constructed and plotted by the following code:
 
 Individual `JP` will play a special role, that's why we use a color for his vertex. 
 
-For fun, you can generate a Javascript graph with the `d3Network` package:
+For fun, we can generate an interactive Javascript graph with the `d3Network` package:
 
 ```{r, results='asis', eval=TRUE}
 library(d3Network)
@@ -137,7 +138,6 @@ d3SimpleNetwork(data.frame(from,to), file="d3graph.html",
                 iframe=TRUE, width=400, height=300)
 ```
 
-But unfortunately the output has some troubles when I upload on Github: a static graph appears in addition to the interactive graph - see [here](http://htmlpreview.github.io/?https://github.com/gilbertpc/beliefs/blob/master/d3graph.html).
 
 ### Belief updating
 
@@ -222,9 +222,9 @@ for(t in 2:T){
 
 ### Results 
 
-The results are shown by the graphic below. 
+The results are shown by the animated graphic below. A static version of the final graphic is obtained by this code:
 
-```{r results_onestubborn, fig.width=13}
+```{r results_onestubborn, fig.width=13, eval=FALSE}
 sims <- data.frame(time=1:T, t(X))
 ggdata <- melt(sims, id.vars="time", variable.name="individual", value.name="opinion")
 ggplot(ggdata, aes(x=time, y=opinion, color=individual)) + 
@@ -236,10 +236,11 @@ ggplot(ggdata, aes(x=time, y=opinion, color=individual)) +
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://vis.supstat.com/assets/themes/dinky/js/jquery.scianimator.min.js"></script>
 
-Here comes a test of the Brownian motion:
 
-```{r scianim_results_onestubborn, fig.show='animate', interval=.1}
-for(t in 1:20){
+```{r scianim_results_onestubborn, fig.show='animate', interval=.1, fig.width=13}
+sims <- data.frame(time=1:T, t(X))
+ggdata <- melt(sims, id.vars="time", variable.name="individual", value.name="opinion")
+for(t in 1:T){
   gg <- ggplot(subset(ggdata, time<=t), aes(x=time, y=opinion, color=individual)) + 
      geom_line() + 
     xlim(c(1,T)) + ylim(c(0,100))
