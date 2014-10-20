@@ -8,6 +8,12 @@ output:
     keep_md: true
 ---
 
+<style>
+    iframe{
+        border: none
+    }
+</style>
+
 ```{r setup, echo=FALSE, message=FALSE}
 library(knitr)
 opts_knit$set(animation.fun = hook_scianimator)
@@ -237,7 +243,7 @@ ggplot(ggdata, aes(x=time, y=opinion, color=individual)) +
 <script src="http://vis.supstat.com/assets/themes/dinky/js/jquery.scianimator.min.js"></script>
 
 
-```{r scianim_results_onestubborn, fig.show='animate', interval=.1, fig.width=13}
+```{r scianim_results_onestubborn, fig.show='animate', interval=.1, fig.width=13, echo=FALSE, message=FALSE}
 sims <- data.frame(time=1:T, t(X))
 ggdata <- melt(sims, id.vars="time", variable.name="individual", value.name="opinion")
 for(t in 1:T){
@@ -249,7 +255,7 @@ for(t in 1:T){
 ```
 
 
-All opinions converge to the opinion of the stubborn `JP`. The remarkable point is the behavior of `JBM` opinion: although `JBM` is not connected to the stubborn `JP` and is not a credulous individual, his opinion converges to the stubborn opinion in the long-term.
+Every opinion converges to the opinion of the stubborn `JP`. The remarkable point is the behavior of `JBM` opinion: although `JBM` is not connected to the stubborn `JP` and is not a credulous individual, his opinion converges to the stubborn opinion in the long-term.
 
 
 ### A two-stubborns example
@@ -265,7 +271,7 @@ renderGraph(g)
 
 Let's run the simulations until $T=1000$ this time:
 
-```{r results_twostubborns, fig.width=13}
+```{r results_twostubborns, fig.width=13, eval=FALSE}
 T <- 1000
 X <- matrix(NA, nrow=nrow(alpha), ncol=T)
 rownames(X) <- rownames(alpha)
@@ -278,6 +284,25 @@ ggdata <- melt(sims, id.vars="time", variable.name="individual", value.name="opi
 ggplot(ggdata, aes(x=time, y=opinion, color=individual)) + 
    geom_line() + 
   xlim(c(1,T)) + ylim(c(0,100))
+```
+
+
+```{r scianim_results_twostubborns, fig.show='animate', interval=.1, fig.width=13, echo=FALSE, message=FALSE}
+T <- 1000
+X <- matrix(NA, nrow=nrow(alpha), ncol=T)
+rownames(X) <- rownames(alpha)
+X[,1] <- inits
+for(t in 2:T){
+  X <- update(X,t)
+}
+sims <- data.frame(time=1:T, t(X))
+ggdata <- melt(sims, id.vars="time", variable.name="individual", value.name="opinion")
+for(t in 1:T){
+  gg <- ggplot(subset(ggdata, time<=t), aes(x=time, y=opinion, color=individual)) + 
+     geom_line() + 
+    xlim(c(1,T)) + ylim(c(0,100))
+  print(gg)
+  }
 ```
 
 The graph shows that each opinion is attracted to the opinion of `JP`, the stubborn having most credibility and most connections in the society. Except, obviously, for the opposite stubborn `JBM`. 
