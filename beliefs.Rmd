@@ -128,7 +128,7 @@ Individual `JP` will play a special role, that's why we use a color for his vert
 
 For fun, you can generate a Javascript graph with the `d3Network` package:
 
-```{r, results='asis', eval=FALSE}
+```{r, results='asis', eval=TRUE}
 library(d3Network)
 from <- sapply(str_split(edgeNames(g), "~"), function(pair) pair[1])
 to <- sapply(str_split(edgeNames(g), "~"), function(pair) pair[2])
@@ -231,6 +231,22 @@ ggplot(ggdata, aes(x=time, y=opinion, color=individual)) +
    geom_line() + 
   xlim(c(1,T)) + ylim(c(0,100))
 ```
+
+<link rel="stylesheet" href="https://raw.github.com/brentertz/scianimator/master/assets/css/scianimator.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://vis.supstat.com/assets/themes/dinky/js/jquery.scianimator.min.js"></script>
+
+Here comes a test of the Brownian motion:
+
+```{r scianim_results_onestubborn, fig.show='animate', interval=.1}
+for(t in 1:20){
+  gg <- ggplot(subset(ggdata, time<=t), aes(x=time, y=opinion, color=individual)) + 
+     geom_line() + 
+    xlim(c(1,T)) + ylim(c(0,100))
+  print(gg)
+  }
+```
+
 
 All opinions converge to the opinion of the stubborn `JP`. The remarkable point is the behavior of `JBM` opinion: although `JBM` is not connected to the stubborn `JP` and is not a credulous individual, his opinion converges to the stubborn opinion in the long-term.
 
